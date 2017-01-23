@@ -7,13 +7,18 @@ import java.net.URL;
 public class JSONparser {
 
     public static void main(String[] args) throws Exception {
-        String json = readUrl("http://reisapi.ruter.no/Place/GetStop/3012060");
-        System.out.println(json);
+        String getStop = readUrl("http://reisapi.ruter.no/Place/GetStop/3012060");
         Gson gson = new Gson();
-        Stoppested bjerke = gson.fromJson(json, Stoppested.class);
+        System.out.println(getStop);
+        Stoppested bjerke = gson.fromJson(getStop, Stoppested.class);
+        Stoppested løren = gson.fromJson("{\"X\":503928}", Stoppested.class);
         if (!bjerke.IsHub) {
             System.out.println(bjerke.Y);
         }
+
+        System.out.println(løren.X);
+        //String GetLinesByStop = readUrl("http://reisapi.ruter.no/GET Travel/GetTravels?fromPlace={fromPlace}&amp;toPlace={toPlace}&amp;isafter={isafter}&amp;time={time}&amp;changemargin={changemargin}&amp;changepunish={changepunish}&amp;walkingfactor={walkingfactor}&amp;proposals={proposals}&amp;transporttypes={transporttypes}&amp;maxwalkingminutes={maxwalkingminutes}&amp;linenames={linenames}&amp;walkreluctance={walkreluctance}&amp;waitAtBeginningFactor={waitAtBeginningFactor}");
+        //System.out.println(GetLinesByStop);
     }
 
     static class Stoppested {
