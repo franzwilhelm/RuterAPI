@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import org.sintef.jarduino.JArduino;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,22 +14,29 @@ public class JSONparser {
     private static HashMap<String, String> holdeplasser = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
+        JArduino arduino = new Blink("COM3");
+
         System.out.print("Skriv inn navn på holdeplassen du vil vite mer om: ");
         initHashMap();
         Scanner sc = new Scanner(System.in);
         String input = holdeplasser.get(sc.nextLine());
         String getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + input);
+        System.out.println(getDepartures);
         Gson gson = new Gson();
         //Avgang bjerke = gson.fromJson(getDepartures, Avgang.class);
         MonitoredStopVisit[] monitoredStopVisits = gson.fromJson(getDepartures, MonitoredStopVisit[].class);
 
+
+        arduino.runArduinoProcess();
+
+
         for (MonitoredStopVisit m : monitoredStopVisits) {
             System.out.println(
-                           "Ankomst --------------   " + m.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11,16) +
-                    "\n" + "Finnes sanntiddata ---   " + m.MonitoredVehicleJourney.Monitored +
-                    "\n" + "Hvem kjører bussen ---   " + m.MonitoredVehicleJourney.OperatorRef +
-                    "\n" + "Navn på bussen -------   " + m.MonitoredVehicleJourney.PublishedLineName + " - " + m.MonitoredVehicleJourney.DestinationName +
-                    "\n" + "_________________________________________");
+                    "Ankomst --------------   " + m.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11, 16) +
+                            "\n" + "Finnes sanntiddata ---   " + m.MonitoredVehicleJourney.Monitored +
+                            "\n" + "Hvem kjører bussen ---   " + m.MonitoredVehicleJourney.OperatorRef +
+                            "\n" + "Navn på bussen -------   " + m.MonitoredVehicleJourney.PublishedLineName + " - " + m.MonitoredVehicleJourney.DestinationName +
+                            "\n" + "_________________________________________");
 
         }
     }
