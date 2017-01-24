@@ -1,29 +1,76 @@
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class JSONparser {
 
-    public static void main(String[] args) throws Exception {
-        String getStop = readUrl("http://reisapi.ruter.no/Place/GetStop/3012060");
-        Gson gson = new Gson();
-        System.out.println(getStop);
-        Stoppested bjerke = gson.fromJson(getStop, Stoppested.class);
-        Stoppested løren = gson.fromJson("{\"X\":503928}", Stoppested.class);
-        if (!bjerke.IsHub) {
-            System.out.println(bjerke.Y);
-        }
+    private static HashMap<String, String> holdeplasser = new HashMap<>();
 
-        System.out.println(løren.X);
-        //String GetLinesByStop = readUrl("http://reisapi.ruter.no/GET Travel/GetTravels?fromPlace={fromPlace}&amp;toPlace={toPlace}&amp;isafter={isafter}&amp;time={time}&amp;changemargin={changemargin}&amp;changepunish={changepunish}&amp;walkingfactor={walkingfactor}&amp;proposals={proposals}&amp;transporttypes={transporttypes}&amp;maxwalkingminutes={maxwalkingminutes}&amp;linenames={linenames}&amp;walkreluctance={walkreluctance}&amp;waitAtBeginningFactor={waitAtBeginningFactor}");
-        //System.out.println(GetLinesByStop);
+    public static void main(String[] args) throws Exception {
+        System.out.print("Skriv inn navn på holdeplassen du vil vite mer om: ");
+        initHashMap();
+        Scanner sc = new Scanner(System.in);
+        String input = holdeplasser.get(sc.nextLine());
+        String getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + input);
+        Gson gson = new Gson();
+        //Avgang bjerke = gson.fromJson(getDepartures, Avgang.class);
+        MonitoredStopVisit[] monitoredStopVisits = gson.fromJson(getDepartures, MonitoredStopVisit[].class);
+
+        for (MonitoredStopVisit m : monitoredStopVisits) {
+            System.out.println(
+                           "Ankomst --------------   " + m.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11,16) +
+                    "\n" + "Finnes sanntiddata ---   " + m.MonitoredVehicleJourney.Monitored +
+                    "\n" + "Hvem kjører bussen ---   " + m.MonitoredVehicleJourney.OperatorRef +
+                    "\n" + "Navn på bussen -------   " + m.MonitoredVehicleJourney.PublishedLineName + " - " + m.MonitoredVehicleJourney.DestinationName +
+                    "\n" + "_________________________________________");
+
+        }
     }
 
-    static class Stoppested {
-        int X, Y, Zone, ID;
-        String ShortName, Name, District, PlaceType;
+    static void initHashMap() throws FileNotFoundException {
+        File f = new File("./data/stops.txt");
+        Scanner sc = new Scanner(f);
+        while (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            int counter = 0;
+            for (int i = 8; i < s.length(); i++) {
+                if (s.substring(i, i + 1).equals(",")) {
+                    break;
+                }
+                counter++;
+            }
+            holdeplasser.put(s.substring(8, counter + 8), s.substring(0, 7));
+        }
+    }
+
+    class MonitoredStopVisit {
+        MonitoredVehicleJourney MonitoredVehicleJourney;
+    }
+
+    class MonitoredVehicleJourney {
+        MonitoredCall MonitoredCall;
+        String PublishedLineName;
+        String OperatorRef;
+        String DestinationName;
+        boolean InCongestion;
+        boolean Monitored;
+    }
+
+    class MonitoredCall {
+        String AimedDepartureTime;
+        String EstimatedDepartureTime;
+    }
+
+    class Stoppested {
+        //Place/GetStop/{Id}
+        int X, Y, ID;
+        String Zone, ShortName, Name, District, PlaceType;
         boolean IsHub;
     }
 
