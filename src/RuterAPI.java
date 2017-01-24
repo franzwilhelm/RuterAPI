@@ -1,5 +1,4 @@
 import com.google.gson.Gson;
-import org.sintef.jarduino.JArduino;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,26 +8,23 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class JSONparser {
+public class RuterAPI {
+    private HashMap<String, String> stops = new HashMap<>();
 
-    private static HashMap<String, String> holdeplasser = new HashMap<>();
-
-    public static void main(String[] args) throws Exception {
-        JArduino arduino = new Blink("COM3");
-
-        System.out.print("Skriv inn navn på holdeplassen du vil vite mer om: ");
+    RuterAPI() {
         initHashMap();
-        Scanner sc = new Scanner(System.in);
-        String input = holdeplasser.get(sc.nextLine());
-        String getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + input);
-        System.out.println(getDepartures);
+    }
+
+    void printDepartures(String name) {
+        String id = stops.get(name.substring(0, 1).toUpperCase() + name.substring(1));
+        String getDepartures = null;
+        try {
+            getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Gson gson = new Gson();
-        //Avgang bjerke = gson.fromJson(getDepartures, Avgang.class);
         MonitoredStopVisit[] monitoredStopVisits = gson.fromJson(getDepartures, MonitoredStopVisit[].class);
-
-
-        arduino.runArduinoProcess();
-
 
         for (MonitoredStopVisit m : monitoredStopVisits) {
             System.out.println(
@@ -41,27 +37,13 @@ public class JSONparser {
         }
     }
 
-    static void initHashMap() throws FileNotFoundException {
-        File f = new File("./data/stops.txt");
-        Scanner sc = new Scanner(f);
-        while (sc.hasNextLine()) {
-            String s = sc.nextLine();
-            int counter = 0;
-            for (int i = 8; i < s.length(); i++) {
-                if (s.substring(i, i + 1).equals(",")) {
-                    break;
-                }
-                counter++;
-            }
-            holdeplasser.put(s.substring(8, counter + 8), s.substring(0, 7));
-        }
-    }
-
     class MonitoredStopVisit {
+
         MonitoredVehicleJourney MonitoredVehicleJourney;
     }
 
     class MonitoredVehicleJourney {
+
         MonitoredCall MonitoredCall;
         String PublishedLineName;
         String OperatorRef;
@@ -71,6 +53,7 @@ public class JSONparser {
     }
 
     class MonitoredCall {
+
         String AimedDepartureTime;
         String EstimatedDepartureTime;
     }
@@ -82,7 +65,7 @@ public class JSONparser {
         boolean IsHub;
     }
 
-    private static String readUrl(String urlString) throws Exception {
+    String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {
             URL url = new URL(urlString);
@@ -98,4 +81,26 @@ public class JSONparser {
                 reader.close();
         }
     }
+
+    private void initHashMap() {
+        File f = new File("./data/stops.txt");
+        Scanner sc = null;
+        try {
+            sc = new Scanner(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            int counter = 0;
+            for (int i = 8; i < s.length(); i++) {
+                if (s.substring(i, i + 2).matches("," + "[\\d]")) {
+                    break;
+                }
+                counter++;
+            }
+            stops.put(s.substring(8, counter + 8), s.substring(0, 7));
+        }
+    }
+
 }
