@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RuterAPI {
     private HashMap<String, String> stops = new HashMap<>();
@@ -19,7 +21,7 @@ public class RuterAPI {
         return stops.get(name.substring(0, 1).toUpperCase() + name.substring(1));
     }
 
-    MonitoredStopVisit[] getDepartures(String stop) {
+    MonitoredStopVisit[] getStopVisit(String stop) {
         String getDepartures = null;
         try {
             getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + getId(stop));
@@ -31,35 +33,54 @@ public class RuterAPI {
         return monitoredStopVisits;
     }
 
-    void printDepartures(MonitoredStopVisit[] departures) {
-        for (MonitoredStopVisit m : departures) {
-            System.out.println(
-                    "Ankomst --------------   " + m.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11, 16) +
-                            "\n" + "Finnes sanntiddata ---   " + m.MonitoredVehicleJourney.Monitored +
-                            "\n" + "Hvem kjører bussen ---   " + m.MonitoredVehicleJourney.OperatorRef +
-                            "\n" + "Navn på bussen -------   " + m.MonitoredVehicleJourney.PublishedLineName + " - " + m.MonitoredVehicleJourney.DestinationName +
-                            "\n" + "_________________________________________");
+    static class NextDeparture {
+        private int expHour;
+        private int expMinute;
+        private int aimHour;
+        private int aimMinute;
+        private String DestinationName;
+        private String LineRef;
+
+        NextDeparture(MonitoredStopVisit[] departures, int i) {
+            String exp = departures[i].MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime;
+            String aim = departures[i].MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime;
+            LineRef = departures[i].MonitoredVehicleJourney.LineRef;
+            DestinationName = departures[i].MonitoredVehicleJourney.DestinationName;
+            String reg = "T(\\d\\d):(\\d\\d)";
+            Pattern p = Pattern.compile(reg);
+            Matcher m = p.matcher(exp);
+            Matcher m2 = p.matcher(aim);
+            m.find();
+            m2.find();
+            expHour = Integer.parseInt(m.group(1));
+            expMinute = Integer.parseInt(m.group(2));
+            aimHour = Integer.parseInt(m2.group(1));
+            aimMinute = Integer.parseInt(m2.group(2));
         }
-    }
 
-    int getExpDepHour(MonitoredStopVisit[] departures) {
-        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime.substring(11, 13));
-    }
+        public int getExpHour() {
+            return expHour;
+        }
 
-    int getExpDepMinute(MonitoredStopVisit[] departures) {
-        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime.substring(14, 16));
-    }
+        public int getExpMinute() {
+            return expMinute;
+        }
 
-    int getAimDepHour(MonitoredStopVisit[] departures) {
-        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11, 13));
-    }
+        public int getAimHour() {
+            return aimHour;
+        }
 
-    int getAimDepMinute(MonitoredStopVisit[] departures) {
-        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(14, 16));
-    }
+        public int getAimMinute() {
+            return aimMinute;
+        }
 
-    boolean hasRealTime(MonitoredStopVisit[] departures) {
-        return departures[0].MonitoredVehicleJourney.Monitored;
+        public String getLineRef() {
+            return LineRef;
+        }
+
+        public String getDestinationName() {
+            return DestinationName;
+        }
     }
 
     class MonitoredStopVisit {
@@ -68,16 +89,14 @@ public class RuterAPI {
 
     class MonitoredVehicleJourney {
         MonitoredCall MonitoredCall;
-        String PublishedLineName;
-        String OperatorRef;
         String DestinationName;
-        boolean InCongestion;
-        boolean Monitored;
+        String LineRef;
+        String DirectionRef;
     }
 
     class MonitoredCall {
         String AimedDepartureTime;
-        String ExpectedArrivalTime;
+        String ExpectedDepartureTime;
     }
 
     class Stoppested {

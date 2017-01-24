@@ -1,20 +1,43 @@
 import org.sintef.jarduino.JArduino;
 
+import java.util.Scanner;
+
 public class Main {
     private static RuterAPI ruterAPI;
     private static int currentHour;
     private static int currentMinute;
 
+
     public static void main(String[] args) throws Exception {
         currentHour = 16;
         currentMinute = 43;
-
         ruterAPI = new RuterAPI();
-        RuterAPI.MonitoredStopVisit[] ullevål = ruterAPI.getDepartures("ullevål stadion,");
-        System.out.println("Aimed: " + ruterAPI.getAimDepHour(ullevål) + ":" + ruterAPI.getAimDepMinute(ullevål));
-        if(ruterAPI.hasRealTime(ullevål)) {
-            System.out.println(" Real: " + ruterAPI.getEstDepHour(ullevål) + ":" + ruterAPI.getEstDepMinute(ullevål));
+        RuterAPI.NextDeparture nextDeparture;
+        RuterAPI.MonitoredStopVisit[] direction1;
+
+        while (true) {
+            RuterAPI.MonitoredStopVisit[] u = ruterAPI.getStopVisit("ullevål stadion,");
+
+            Scanner sc = new Scanner(System.in);
+            String a = sc.nextLine();
+            int b = Integer.parseInt(a);
+
+            if (a.equalsIgnoreCase("x")) return;
+            else {
+                for (RuterAPI.MonitoredStopVisit m : u) {
+                    if (m.MonitoredVehicleJourney.DirectionRef == "1"){
+
+                    }
+                }
+                nextDeparture = new RuterAPI.NextDeparture(u, b);
+            }
+
+            System.out.println("Linename: " + nextDeparture.getLineRef() + " - " + nextDeparture.getDestinationName());
+            System.out.println("Aimed: " + nextDeparture.getAimHour() + ":" + nextDeparture.getAimMinute());
+            System.out.println(" Real: " + nextDeparture.getExpHour() + ":" + nextDeparture.getExpMinute());
         }
+
+
     }
 
     /*static private void loop() {
@@ -32,5 +55,3 @@ public class Main {
         arduino.runArduinoProcess();
     }
 }
-
---- Franzern
