@@ -1,20 +1,23 @@
-
 import org.sintef.jarduino.JArduino;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class Main {
     private static RuterAPI ruterAPI;
+    private static int currentHour;
+    private static int currentMinute;
 
     public static void main(String[] args) throws Exception {
+        currentHour = 16;
+        currentMinute = 43;
+
         ruterAPI = new RuterAPI();
-        ruterAPI.printDepartures("ullevål stadion,");
+        RuterAPI.MonitoredStopVisit[] ullevål = ruterAPI.getDepartures("ullevål stadion,");
+        System.out.println("Aimed: " + ruterAPI.getAimDepHour(ullevål) + ":" + ruterAPI.getAimDepMinute(ullevål));
+        if(ruterAPI.hasRealTime(ullevål)) {
+            System.out.println(" Real: " + ruterAPI.getEstDepHour(ullevål) + ":" + ruterAPI.getEstDepMinute(ullevål));
+        }
     }
 
-    static private void loop() {
+    /*static private void loop() {
         while (true) {
             Scanner sc = new Scanner(System.in);
             String a = sc.nextLine();
@@ -22,7 +25,7 @@ public class Main {
             if (a.equalsIgnoreCase("exit")) return;
             else ruterAPI.printDepartures(a);
         }
-    }
+    }*/
 
     void runArduino(String com) {
         JArduino arduino = new Blink(com);

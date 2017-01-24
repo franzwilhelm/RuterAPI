@@ -15,35 +15,58 @@ public class RuterAPI {
         initHashMap();
     }
 
-    void printDepartures(String name) {
-        String id = stops.get(name.substring(0, 1).toUpperCase() + name.substring(1));
+    private String getId(String name) {
+        return stops.get(name.substring(0, 1).toUpperCase() + name.substring(1));
+    }
+
+    MonitoredStopVisit[] getDepartures(String stop) {
         String getDepartures = null;
         try {
-            getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + id);
+            getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + getId(stop));
         } catch (Exception e) {
             e.printStackTrace();
         }
         Gson gson = new Gson();
         MonitoredStopVisit[] monitoredStopVisits = gson.fromJson(getDepartures, MonitoredStopVisit[].class);
+        return monitoredStopVisits;
+    }
 
-        for (MonitoredStopVisit m : monitoredStopVisits) {
+    void printDepartures(MonitoredStopVisit[] departures) {
+        for (MonitoredStopVisit m : departures) {
             System.out.println(
                     "Ankomst --------------   " + m.MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11, 16) +
                             "\n" + "Finnes sanntiddata ---   " + m.MonitoredVehicleJourney.Monitored +
                             "\n" + "Hvem kjører bussen ---   " + m.MonitoredVehicleJourney.OperatorRef +
                             "\n" + "Navn på bussen -------   " + m.MonitoredVehicleJourney.PublishedLineName + " - " + m.MonitoredVehicleJourney.DestinationName +
                             "\n" + "_________________________________________");
-
         }
     }
 
-    class MonitoredStopVisit {
+    int getExpDepHour(MonitoredStopVisit[] departures) {
+        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime.substring(11, 13));
+    }
 
+    int getExpDepMinute(MonitoredStopVisit[] departures) {
+        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.ExpectedArrivalTime.substring(14, 16));
+    }
+
+    int getAimDepHour(MonitoredStopVisit[] departures) {
+        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(11, 13));
+    }
+
+    int getAimDepMinute(MonitoredStopVisit[] departures) {
+        return Integer.parseInt(departures[0].MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime.substring(14, 16));
+    }
+
+    boolean hasRealTime(MonitoredStopVisit[] departures) {
+        return departures[0].MonitoredVehicleJourney.Monitored;
+    }
+
+    class MonitoredStopVisit {
         MonitoredVehicleJourney MonitoredVehicleJourney;
     }
 
     class MonitoredVehicleJourney {
-
         MonitoredCall MonitoredCall;
         String PublishedLineName;
         String OperatorRef;
@@ -53,9 +76,8 @@ public class RuterAPI {
     }
 
     class MonitoredCall {
-
         String AimedDepartureTime;
-        String EstimatedDepartureTime;
+        String ExpectedArrivalTime;
     }
 
     class Stoppested {
@@ -65,7 +87,7 @@ public class RuterAPI {
         boolean IsHub;
     }
 
-    String readUrl(String urlString) throws Exception {
+    private String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {
             URL url = new URL(urlString);
