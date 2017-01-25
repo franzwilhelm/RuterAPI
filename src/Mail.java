@@ -14,11 +14,19 @@ import javax.mail.internet.MimeMessage;
 class Mail {
     private String subject;
     private String fromMail;
+    private String text = "error";
 
     Mail(String subject, String fromMail) throws FileNotFoundException {
         this.subject = subject;
         this.fromMail = fromMail;
     }
+
+    Mail(String subject, String fromMail, String text) throws FileNotFoundException {
+        this.subject = subject;
+        this.fromMail = fromMail;
+        this.text = text;
+    }
+
 
     void send() throws FileNotFoundException {
         File file = new File("./data/gmail_password.txt");
@@ -48,7 +56,7 @@ class Mail {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
             message.setSubject(subject);
-            message.setText("");
+            message.setText(text);
             Transport.send(message);
             System.out.println("MAIL SENT"
                     + "\n FROM: " + fromMail

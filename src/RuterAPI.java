@@ -57,32 +57,33 @@ class RuterAPI {
         private static final int HOUR = 1;
         private static final int MINUTE = 2;
         private static final int SECONDS = 3;
-        String expHour;
-        String expMinute;
-        String aimHour;
-        String aimMinute;
-        String currHour;
-        String currMinute;
-        String currSec;
         String destName;
         String lineRef;
+        String expTime, expHour, expMinute;
+        String aimTime, aimHour, aimMinute;
+        String currTime, currHour, currMinute, currSec;
         int hDif;
         int mDif;
 
         void initDeparture(MonitoredStopVisit[] departures, int i) {
             String exp = departures[i].MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime;
             String aim = departures[i].MonitoredVehicleJourney.MonitoredCall.AimedDepartureTime;
-            String rec = departures[i].RecordedAtTime;
+            String curr = departures[i].RecordedAtTime;
             lineRef = departures[i].MonitoredVehicleJourney.LineRef;
             destName = departures[i].MonitoredVehicleJourney.DestinationName;
 
+            expTime = exp;
             expHour = regEx(exp, HOUR);
             expMinute = regEx(exp, MINUTE);
+
+            aimTime = aim;
             aimHour = regEx(aim, HOUR);
             aimMinute = regEx(aim, MINUTE);
-            currHour = regEx(rec, HOUR);
-            currMinute = regEx(rec, MINUTE);
-            currSec = regEx(rec, SECONDS);
+
+            currTime = regEx2(curr);
+            currHour = regEx(curr, HOUR);
+            currMinute = regEx(curr, MINUTE);
+            currSec = regEx(curr, SECONDS);
             setDif();
         }
 
@@ -92,6 +93,14 @@ class RuterAPI {
             Matcher m = p.matcher(comp);
             m.find();
             return m.group(group);
+        }
+
+        String regEx2(String comp) {
+            String reg = "T(\\d\\d:\\d\\d):\\d\\d";
+            Pattern p = Pattern.compile(reg);
+            Matcher m = p.matcher(comp);
+            m.find();
+            return m.group(1);
         }
 
 
