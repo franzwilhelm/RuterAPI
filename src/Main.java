@@ -20,6 +20,7 @@ class Main {
                 Mail ifttt = new Mail(løp, gmailUsername);
                 ifttt.send();
             }
+            
         }
         if (!enBool) {
             Mail ifttt = new Mail(gå, gmailUsername);
