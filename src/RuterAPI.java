@@ -56,6 +56,7 @@ class RuterAPI {
     static class Departure {
         private static final int HOUR = 1;
         private static final int MINUTE = 2;
+        private static final int SECONDS = 3;
         String expHour;
         String expMinute;
         String aimHour;
@@ -81,29 +82,22 @@ class RuterAPI {
             aimMinute = regEx(aim, MINUTE);
             currHour = regEx(rec, HOUR);
             currMinute = regEx(rec, MINUTE);
-            currSec = regEx2(rec);
+            currSec = regEx(rec, SECONDS);
             setDif();
         }
 
         String regEx(String comp, int group) {
-            String reg = "T(\\d\\d):(\\d\\d)";
+            String reg = "T(\\d\\d):(\\d\\d):(\\d\\d)";
             Pattern p = Pattern.compile(reg);
             Matcher m = p.matcher(comp);
             m.find();
             return m.group(group);
         }
 
-        String regEx2(String comp) {
-            String reg = "T\\d\\d:\\d\\d:(\\d\\d)";
-            Pattern p = Pattern.compile(reg);
-            Matcher m = p.matcher(comp);
-            m.find();
-            return m.group(1);
-        }
 
         private void setDif() {
             int inc = 0;
-            if (Integer.parseInt(currSec) > 40) inc = 1;
+            if (Integer.parseInt(currSec) > 30) inc = 1;
             int currMinute = Integer.parseInt(this.currMinute) + inc;
             int currHour = Integer.parseInt(this.currHour);
             int expHour = Integer.parseInt(this.expHour);
