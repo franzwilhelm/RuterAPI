@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JSONparser.iml" filepath="$PROJECT_DIR$/JSONparser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RuterAPI.iml" filepath="$PROJECT_DIR$/RuterAPI.iml" />
     </modules>
   </component>
 </project>

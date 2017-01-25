@@ -1,6 +1,6 @@
 import org.sintef.jarduino.*;
 
-public class Blink extends JArduino {
+class Blink extends JArduino {
     //Constructor taking a String describing the serial port where the Arduino Board is connected (eg, "COM7")
     Blink(String port) {
         super(port);
