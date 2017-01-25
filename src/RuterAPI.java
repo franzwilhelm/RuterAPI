@@ -42,7 +42,7 @@ class RuterAPI {
         return stops.get(name.substring(0, 1).toUpperCase() + name.substring(1));
     }
 
-    MonitoredStopVisit[] getStopVisit(String stop) {
+    private MonitoredStopVisit[] getStopVisit(String stop) {
         String getDepartures = null;
         try {
             getDepartures = readUrl("http://reisapi.ruter.no/StopVisit/GetDepartures/" + getId(stop));
@@ -128,13 +128,6 @@ class RuterAPI {
     class MonitoredCall {
         String AimedDepartureTime;
         String ExpectedDepartureTime;
-    }
-
-    private class Stoppested {
-        //Place/GetStop/{Id}
-        int X, Y, ID;
-        String Zone, ShortName, Name, District, PlaceType;
-        boolean IsHub;
     }
 
     private String readUrl(String urlString) throws Exception {

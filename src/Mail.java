@@ -50,7 +50,10 @@ class Mail {
             message.setSubject(subject);
             message.setText("");
             Transport.send(message);
-            System.out.println("mail sent to ifttt");
+            System.out.println("MAIL SENT"
+                    + "\n FROM: " + fromMail
+                    + "\n   TO: " + to
+                    + "\n  MSG: " + subject + "\n");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
