@@ -1,23 +1,27 @@
 import org.sintef.jarduino.*;
 
 class Blink extends JArduino {
-    //Constructor taking a String describing the serial port where the Arduino Board is connected (eg, "COM7")
+    private boolean running = true;
+
     Blink(String port) {
         super(port);
     }
 
     protected void setup() {
-        // initialize the digital pin as an output.
-        // Pin 13 has an LED connected on most Arduino boards:
-        pinMode(DigitalPin.PIN_13, PinMode.OUTPUT);
+        pinMode(DigitalPin.PIN_2, PinMode.INPUT);
+        delay(2000);
     }
 
     protected void loop() {
-        // set the LED on
-        digitalWrite(DigitalPin.PIN_13, DigitalState.HIGH);
-        delay(200); // wait for a second
-        // set the LED off
-        digitalWrite(DigitalPin.PIN_13, DigitalState.LOW);
-        delay(200); // wait for a second
+        short switchState = analogRead(AnalogPin.A_1);
+        System.out.println(switchState);
+        if (switchState < 700) {
+            running = false;
+            this.stopArduinoProcess();
+        }
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }

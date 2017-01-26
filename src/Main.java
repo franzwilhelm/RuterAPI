@@ -1,23 +1,21 @@
-import org.sintef.jarduino.JArduino;
-
-import java.io.FileNotFoundException;
-
 class Main {
     private static final String GMAIL_USERNAME = "franz.vonderlippe@gmail.com";
     private static final String MY_NAME = "Franz von der Lippe";
-    private static final String stop = "jernbanetorget,B.Gunnerus g.";
-    private static final int
-            RUN = 1,
-            WALK = 2,
-            BOTH = 3;
+    private static final String stop = "ullevål stadion,";
 
     public static void main(String[] args) throws Exception {
+        /*Blink arduino = new Blink("COM4");
+        arduino.runArduinoProcess();
+        while (arduino.isRunning()) {
+            Thread.sleep(300);
+        }
+        System.out.println("ok");*/
+
         RuterAPI api = new RuterAPI();
-        //JArduino arduino = new Blink("COM4");
-        //arduino.runArduinoProcess();
 
         RuterAPI.MonitoredStopVisit[] rightDepartures = api.getRightDirectionDepartures(stop, "1");
-        RuterAPI.Departures.initDepartures(rightDepartures, 1);
+        RuterAPI.Departures.initDepartures(rightDepartures, 3);
+
         Ifttt ifttt = new Ifttt(GMAIL_USERNAME);
         ifttt.toSlack();
         ifttt.toiPhone();

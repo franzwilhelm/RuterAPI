@@ -105,7 +105,7 @@ class RuterAPI {
                 aimMinute.add(regEx(aim, MINUTE));
 
                 setDif(i);
-                System.out.println(aimTime.get(i) + " --> " + lineRef.get(i) + " - " + destName.get(i));
+                System.out.println(expTime.get(i) + " --> " + lineRef.get(i) + " - " + destName.get(i) + " (aim: " + aimTime.get(i) + ")");
             }
         }
 
@@ -135,9 +135,9 @@ class RuterAPI {
             int eHour = expHour.get(i);
             int eMin = expMinute.get(i);
             if (eHour == hour) difM = eMin - min;
-            if (eHour == hour + 1 || ((hour == 23) && eHour == 0)) {
-                difM = 60 - min + eMin + 60;
-                difH = eHour - hour;
+            if (eHour == hour + 1 || ((hour == 23) && eHour == 00)) {
+                difM = 60 - min + eMin;
+                difH = 1;
             } else {
                 difH = eHour - hour;
                 difM = eMin - min;
