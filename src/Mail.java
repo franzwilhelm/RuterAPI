@@ -12,28 +12,26 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 class Mail {
-    private String subject;
-    private String fromMail;
-    private String text = "error";
 
-    Mail(String subject, String fromMail) throws FileNotFoundException {
+    private String
+            tag,
+            sender,
+            subject,
+            body;
+
+    public Mail(String tag, String sender, String subject, String body) {
+        this.tag = tag;
+        this.sender = sender;
         this.subject = subject;
-        this.fromMail = fromMail;
+        this.body = body;
     }
-
-    Mail(String subject, String fromMail, String text) throws FileNotFoundException {
-        this.subject = subject;
-        this.fromMail = fromMail;
-        this.text = text;
-    }
-
 
     void send() throws FileNotFoundException {
         File file = new File("./data/gmail_password.txt");
         Scanner sc = new Scanner(file);
         String to = "trigger@applet.ifttt.com";
-        String from = fromMail;
-        final String username = fromMail;
+        String from = sender;
+        final String username = sender;
         final String password = sc.nextLine();
 
         String host = "smtp.gmail.com";
@@ -55,13 +53,14 @@ class Mail {
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject(subject);
-            message.setText(text);
+            message.setSubject(tag + " " + subject);
+            message.setText(body);
             Transport.send(message);
-            System.out.println("MAIL SENT"
-                    + "\n FROM: " + fromMail
-                    + "\n   TO: " + to
-                    + "\n  MSG: " + subject + "\n");
+            System.out.println("\n------------- MAIL SENT -------------"
+                    + "\nFROM ----> " + sender
+                    + "\nTO ------> " + to
+                    + "\nSUBJECT -> " + subject
+                    + "\n\n--------------- BODY ----------------\n" + body + "\n");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
