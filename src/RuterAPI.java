@@ -8,8 +8,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 class RuterAPI {
     private final HashMap<String, String> stops = new HashMap<>();
@@ -85,10 +83,10 @@ class RuterAPI {
             System.out.println("----- INITIALIZING " + numbOfDeps + " DEPARTURES -----");
 
             String currReal = departures[0].RecordedAtTime;
-            currTime = (regEx2(currReal));
-            currHour = (regEx(currReal, HOUR));
-            currMinute = (regEx(currReal, MINUTE));
-            currSec = (regEx(currReal, SECONDS));
+            currTime = (Regex.b(currReal));
+            currHour = (Regex.a(currReal, HOUR));
+            currMinute = (Regex.a(currReal, MINUTE));
+            currSec = (Regex.a(currReal, SECONDS));
 
             for (int i = 0; i < numbOfDeps; i++) {
                 String exp = departures[i].MonitoredVehicleJourney.MonitoredCall.ExpectedDepartureTime;
@@ -96,33 +94,17 @@ class RuterAPI {
                 destName.add(departures[i].MonitoredVehicleJourney.DestinationName);
                 lineRef.add(departures[i].MonitoredVehicleJourney.LineRef);
 
-                expTime.add(regEx2(exp));
-                expHour.add(regEx(exp, HOUR));
-                expMinute.add(regEx(exp, MINUTE));
+                expTime.add(Regex.b(exp));
+                expHour.add(Regex.a(exp, HOUR));
+                expMinute.add(Regex.a(exp, MINUTE));
 
-                aimTime.add(regEx2(aim));
-                aimHour.add(regEx(aim, HOUR));
-                aimMinute.add(regEx(aim, MINUTE));
+                aimTime.add(Regex.b(aim));
+                aimHour.add(Regex.a(aim, HOUR));
+                aimMinute.add(Regex.a(aim, MINUTE));
 
                 setDif(i);
                 System.out.println(expTime.get(i) + " --> " + lineRef.get(i) + " - " + destName.get(i) + " (aim: " + aimTime.get(i) + ")");
             }
-        }
-
-        private static int regEx(String comp, int group) {
-            String reg = "T(\\d\\d):(\\d\\d):(\\d\\d)";
-            Pattern p = Pattern.compile(reg);
-            Matcher m = p.matcher(comp);
-            m.find();
-            return Integer.parseInt(m.group(group));
-        }
-
-        private static String regEx2(String comp) {
-            String reg = "T(\\d\\d:\\d\\d):\\d\\d";
-            Pattern p = Pattern.compile(reg);
-            Matcher m = p.matcher(comp);
-            m.find();
-            return m.group(1);
         }
 
         private static void setDif(int i) {

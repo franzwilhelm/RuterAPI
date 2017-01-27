@@ -200,5 +200,233 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Graddle">
+        <CLASSES />
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/docs/javadoc" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/antlr/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/application/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/buildDashboard/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/clientModuleDependencies/shared/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/codeQuality/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/basic/my-app/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/basic/my-utils/number-utils/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/basic/my-utils/string-utils/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/declared-substitution/anonymous-library/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/declared-substitution/my-app/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/hierarchical-multirepo/multirepo-app/modules/number-utils/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/hierarchical-multirepo/multirepo-app/modules/string-utils/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/hierarchical-multirepo/multirepo-app/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/compositeBuilds/plugin-dev/greeting-plugin/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/ear/earCustomized/war/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/ear/earWithWar/war/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/crossCompilation/src/main/groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/crossCompilation/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/mixedJavaAndGroovy/src/main/groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/mixedJavaAndGroovy/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/multiproject/groovycDetector/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/multiproject/testproject/src/main/groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/multiproject/testproject/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/multiproject/testproject/src/test/groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/groovy/multiproject/testproject/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/ivypublish/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/ivypublish/subproject/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaGradlePlugin/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/apispec-support/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/apispec/src/brokenclient/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/apispec/src/client/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/apispec/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/src/client/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/src/collections/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/src/commons/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/src/core/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/src/server/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/src/verifier/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/multiplecomponents/util/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/quickstart/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/targetplatforms/core/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/targetplatforms/core/src/main/java6" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/targetplatforms/server/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/testing-junit-component-under-test/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/testing-junit-component-under-test/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/javaLibraryPlugin/testing-junit-standalone/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/apiAndImpl/src/api/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/apiAndImpl/src/impl/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/apiAndImpl/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/base/prod/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/base/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/crossCompilation/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/crossCompilation/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/customizedLayout/src/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/customizedLayout/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/api/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/buildSrc/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/buildSrc/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/services/shared/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/services/webservice/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/services/webservice/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/shared/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/multiproject/shared/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/onlyif/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/onlyif/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/quickstart/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/quickstart/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/testListener/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/withIntegrationTests/src/integration-test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/withIntegrationTests/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/java/withIntegrationTests/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/jvmComponents/scala/src/main/scala" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/maven-publish/javaProject/subproject/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/maven-publish/quickstart/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/maven/pomGeneration/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/maven/quickstart/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/play/advanced/app" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/play/multiproject/modules/util/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/play/sourcesets/additional/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/play/sourcesets/extra/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/plugins/publishing/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/scala/crossCompilation/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/scala/crossCompilation/src/main/scala" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/scala/mixedJavaAndScala/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/scala/mixedJavaAndScala/src/main/scala" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/signing/conditional/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/signing/maven/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testKit/gradleRunner/junitQuickstart/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/filtering/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/jacoco/application/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/jacoco/quickstart/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/jacoco/quickstart/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/junit/categories/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testReport/core/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testReport/util/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/groupbyinstances/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/groups/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/java-passing/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/java-passing/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/preserveorder/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/suitexmlbuilder/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/testing/testng/suitexmlbuilder/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/toolingApi/customModel/plugin/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/toolingApi/customModel/tooling/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/toolingApi/eclipse/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/toolingApi/idea/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/toolingApi/model/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/toolingApi/runBuild/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/ant/useExternalAntTaskWithConfig/src" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/java/sourceSets/src/intTest/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/javaWithCustomConf/api/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/javaWithCustomConf/shared/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/java/api/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/java/api/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/java/services/personService/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/java/services/personService/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/java/shared/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/java/shared/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/webDist/date/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/multiproject/dependencies/webDist/hello/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/tasks/incrementalBuild/customTaskClass/buildSrc/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/tasks/incrementalBuild/incrementalBuildAdvanced/buildSrc/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/tasks/incrementalBuild/incrementalBuildAdvanced/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/userguide/tasks/incrementalBuild/incrementalBuildAdvanced/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/webApplication/customized/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/webApplication/customized/src/test/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/samples/webApplication/quickstart/src/main/java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/announce" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/antlr" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/base-services" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/base-services-groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/build-cache-http" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/build-comparison" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/build-init" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/cli" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/code-quality" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/composite-builds" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/core" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/dependency-management" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/diagnostics" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ear" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ide" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ide-native" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ide-play" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/installation-beacon" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/internal-android-performance-testing" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/internal-integ-testing" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/internal-performance-testing" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/internal-testing" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ivy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ivy/org/gradle/api/publish/ivy/plugins" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ivy/org/gradle/api/publish/ivy/tasks" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/jacoco" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/javascript" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/jetty" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/jvm-services" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/language-groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/language-java" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/language-jvm" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/language-native" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/language-scala" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/launcher" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/logging" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/maven" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/messaging" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/model-core" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/model-groovy" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/native" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/open-api" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/osgi" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/platform-base" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/platform-jvm" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/platform-native" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/platform-play" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/plugin-development" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/plugin-use" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/plugins" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/process-services" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/publish" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/publish/org/gradle/api/publish/plugins" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/reporting" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/resources" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/resources-http" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/resources-s3" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/resources-sftp" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/scala" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/signing" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/test-kit" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/testing-base" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/testing-jvm" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/testing-native" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/tooling-api" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/tooling-api-builders" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/ui" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/workers" />
+          <root url="jar://$MODULE_DIR$/.idea/lib/gradle-3.3-all.zip!/gradle-3.3/src/wrapper" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/.idea/lib/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.idea/lib/libs" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/.idea/lib/libs" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/.idea/lib/libs" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/.idea/lib/google-api-services-calendar-v3-rev229-1.22.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -8,12 +8,14 @@ class Main {
         arduino.runArduinoProcess();
         while (arduino.isRunning()) {
             Thread.sleep(300);
-        }
-        System.out.println("ok");*/
+        }*/
 
-        RuterAPI api = new RuterAPI();
+        RuterAPI ruterAPI = new RuterAPI();
+        CalendarAPI calendarAPI = new CalendarAPI();
+        calendarAPI.init();
+        System.out.println(calendarAPI.eventName.get(0) + calendarAPI.eventStart.get(0));
 
-        RuterAPI.MonitoredStopVisit[] rightDepartures = api.getRightDirectionDepartures(stop, "1");
+        RuterAPI.MonitoredStopVisit[] rightDepartures = ruterAPI.getRightDirectionDepartures(stop, "1");
         RuterAPI.Departures.initDepartures(rightDepartures, 3);
 
         Ifttt ifttt = new Ifttt(GMAIL_USERNAME);
